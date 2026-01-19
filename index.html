@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For My Sanuu 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -14,9 +15,24 @@
     }
 
     body {
-      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6, #f8e8ff);
       overflow-x: hidden;
       color: #5a2a44;
+      position: relative;
+    }
+
+    /* Cute background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, rgba(255, 182, 193, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: -1;
     }
 
     section {
@@ -31,19 +47,24 @@
 
     section.active {
       display: flex;
-      animation: fadeIn 1s ease;
+      animation: fadeIn 1s ease, bounceIn 0.8s ease;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ff7eb3;
+      text-shadow: 2px 2px 4px rgba(255, 126, 179, 0.3);
+      animation: glow 2s ease-in-out infinite alternate;
     }
 
     p {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.8;
       max-width: 700px;
       margin: auto;
+      color: #7a4a5a;
     }
 
     button {
@@ -51,67 +72,135 @@
       padding: 14px 30px;
       border: none;
       border-radius: 30px;
-      background: #ff7eb3;
+      background: linear-gradient(45deg, #ff7eb3, #ffb3d9);
       color: white;
       font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
       box-shadow: 0 8px 20px rgba(255,126,179,0.4);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    button:hover::before {
+      left: 100%;
     }
 
     button:hover {
       transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(255,126,179,0.5);
     }
 
     /* 🌸 Floating flowers */
     .flower {
       position: absolute;
-      font-size: 22px;
-      animation: float 8s linear infinite;
+      font-size: 24px;
+      animation: float 8s linear infinite, sway 3s ease-in-out infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    /* 💖 Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 10s linear infinite, pulse 2s ease-in-out infinite;
       opacity: 0.7;
+      z-index: 1;
     }
 
     /* ✨ Sparkles */
     .sparkle {
       position: absolute;
-      width: 6px;
-      height: 6px;
-      background: white;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, #fff, #ff7eb3);
       border-radius: 50%;
-      animation: sparkle 2s infinite;
-      opacity: 0.8;
+      animation: sparkle 2s infinite, twinkle 1s ease-in-out infinite;
+      opacity: 0.9;
+      z-index: 1;
     }
 
     /* 🎂 Cake */
     .cake {
-      font-size: 130px;
+      font-size: 140px;
       cursor: pointer;
-      transition: transform 0.4s ease;
+      transition: all 0.4s ease;
+      animation: wiggle 2s ease-in-out infinite;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    }
+
+    .cake:hover {
+      transform: scale(1.1);
     }
 
     .cake:active {
       transform: scale(0.9);
+      animation: none;
     }
 
     /* 💌 Letter */
     .letter {
-      background: rgba(255,255,255,0.75);
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
       max-height: 70vh;
       overflow-y: auto;
+      border: 2px solid #ff7eb3;
+      position: relative;
+    }
+
+    .letter::before {
+      content: '💌';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      background: #ffd6e8;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(255,126,179,0.3);
     }
 
     /* 📸 Photo */
     .photo {
-      width: 240px;
-      height: 320px;
+      width: 260px;
+      height: 340px;
       object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
       margin: 20px auto;
-      animation: photoReveal 1.5s ease;
+      animation: photoReveal 1.5s ease, heartbeat 1.5s ease-in-out infinite;
+      border: 3px solid #ff7eb3;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff7eb3;
+      animation: fall 5s linear infinite;
+      opacity: 0.8;
+      z-index: 1;
     }
 
     @keyframes fadeIn {
@@ -119,9 +208,31 @@
       to {opacity:1; transform: translateY(0);}
     }
 
+    @keyframes bounceIn {
+      0% {transform: scale(0.3);}
+      50% {transform: scale(1.05);}
+      70% {transform: scale(0.9);}
+      100% {transform: scale(1);}
+    }
+
+    @keyframes glow {
+      from {text-shadow: 2px 2px 4px rgba(255, 126, 179, 0.3);}
+      to {text-shadow: 2px 2px 8px rgba(255, 126, 179, 0.6);}
+    }
+
     @keyframes float {
       0% {transform: translateY(100vh) rotate(0deg);}
       100% {transform: translateY(-10vh) rotate(360deg);}
+    }
+
+    @keyframes sway {
+      0%, 100% {transform: translateX(0);}
+      50% {transform: translateX(10px);}
+    }
+
+    @keyframes pulse {
+      0%, 100% {transform: scale(1);}
+      50% {transform: scale(1.2);}
     }
 
     @keyframes sparkle {
@@ -129,9 +240,37 @@
       50% {opacity:1;}
     }
 
+    @keyframes twinkle {
+      0%, 100% {transform: rotate(0deg);}
+      50% {transform: rotate(180deg);}
+    }
+
+    @keyframes wiggle {
+      0%, 100% {transform: rotate(0deg);}
+      25% {transform: rotate(-5deg);}
+      75% {transform: rotate(5deg);}
+    }
+
     @keyframes photoReveal {
-      from {opacity:0; transform: scale(0.8);}
-      to {opacity:1; transform: scale(1);}
+      from {opacity:0; transform: scale(0.8) rotate(-5deg);}
+      to {opacity:1; transform: scale(1) rotate(0deg);}
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {transform: scale(1);}
+      50% {transform: scale(1.05);}
+    }
+
+    @keyframes fall {
+      0% {transform: translateY(-10vh) rotate(0deg);}
+      100% {transform: translateY(100vh) rotate(360deg);}
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {font-size: 2rem;}
+      .cake {font-size: 100px;}
+      .photo {width: 200px; height: 260px;}
     }
   </style>
 </head>
@@ -149,7 +288,7 @@
     <h1>Hey Sanuu 💖</h1>
     <p>
       Someone made something very special just for you…<br>
-      Full of love, flowers, sparkles, and feelings 🌸✨
+      Full of love, flowers, hearts, sparkles, and feelings 🌸💕✨
     </p>
     <button onclick="nextPage(2)">Let’s Begin 🌷</button>
   </div>
@@ -178,7 +317,7 @@
       You are my comfort, my smile, my favorite thought every day.
       I’m grateful for you in ways words will never fully explain.<br><br>
 
-      I love you. Always.
+      I love you. Always. 💕
     </p>
     <button onclick="nextPage(4)">A Special Message For You 💖</button>
   </div>
@@ -195,10 +334,11 @@
       If I could give you one thing in life,<br>
       it would be the ability to see yourself through my eyes.<br><br>
 
-      You are loved more than you know.
+      You are loved more than you know. 💞
     </p>
 
-    <p style="margin-top:20px;">Forever yours 💞</p>
+    <p style="margin-top:20px;">Forever yours 💖</p>
+    <button onclick="celebrate()">Celebrate! 🎉</button>
   </div>
 </section>
 
@@ -214,30 +354,65 @@
   function cutCake() {
     document.getElementById("cakeText").innerText = "Yayyy! Cake cut 🎉🌸";
     createFlowers();
-    setTimeout(() => nextPage(3), 1500);
+    createHearts();
+    createConfetti();
+    setTimeout(() => nextPage(3), 2000);
   }
 
   function createFlowers() {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 20; i++) {
       let flower = document.createElement("div");
       flower.className = "flower";
       flower.innerText = "🌸";
       flower.style.left = Math.random() * 100 + "vw";
       flower.style.animationDuration = (5 + Math.random()*5) + "s";
       document.body.appendChild(flower);
-      setTimeout(() => flower.remove(), 10000);
+      setTimeout(() => flower.remove(), 12000);
+    }
+  }
+
+  function createHearts() {
+    for (let i = 0; i < 15; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (6 + Math.random()*4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 12000);
     }
   }
 
   function createSparkles() {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
       let s = document.createElement("div");
       s.className = "sparkle";
       s.style.left = Math.random() * 100 + "vw";
       s.style.top = Math.random() * 100 + "vh";
       document.body.appendChild(s);
-      setTimeout(() => s.remove(), 2000);
+      setTimeout(() => s.remove(), 2500);
     }
+  }
+
+  function createConfetti() {
+    for (let i = 0; i < 30; i++) {
+      let conf = document.createElement("div");
+      conf.className = "confetti";
+      conf.style.left = Math.random() * 100 + "vw";
+      conf.style.background = `hsl(${Math.random()*360}, 100%, 70%)`;
+      conf.style.animationDuration = (3 + Math.random()*3) + "s";
+      document.body.appendChild(conf);
+      setTimeout(() => conf.remove(), 6000);
+    }
+  }
+
+  function celebrate() {
+    createFlowers();
+    createHearts();
+    createConfetti();
+    createSparkles();
+    // Optional: Add a fun alert or redirect
+    setTimeout(() => alert("Happy Birthday, Sanuu! 🎂💖"), 1000);
   }
 
   setInterval(createSparkles, 2000);
