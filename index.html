@@ -1,225 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For My Sanuu 🎀</title>
+<meta charset="UTF-8">
+<title>Happy Birthday Sanuu 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  background: linear-gradient(135deg,#ffd1e8,#fff0f7);
-  font-family:'Quicksand',sans-serif;
-  color:#5a2a44;
-  overflow-x:hidden;
-}
-
-section{
-  min-height:100vh;
-  display:none;
-  align-items:center;
+  height:100vh;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ffd1dc,#ffb6c1);
+  overflow:hidden;
+  display:flex;
   justify-content:center;
+  align-items:center;
+  color:white;
   text-align:center;
-  padding:30px;
 }
 
-section.active{display:flex;animation:fade 1s ease}
+/* Card */
+.card{
+  background:rgba(255,255,255,0.23);
+  backdrop-filter:blur(18px);
+  border-radius:30px;
+  padding:36px 26px;
+  width:92%;
+  max-width:460px;
+  box-shadow:0 30px 70px rgba(0,0,0,.28);
+  animation:fadeIn .9s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(.9)}
+  to{opacity:1;transform:scale(1)}
+}
 
 h1{
-  font-family:'Playfair Display',serif;
-  font-size:2.3rem;
-  margin-bottom:16px;
+  font-family:'Pacifico',cursive;
+  font-size:2.5rem;
+  margin-bottom:14px;
 }
 
 p{
-  font-size:1.1rem;
-  line-height:1.9;
-  max-width:720px;
-  margin:auto;
+  font-size:1.05rem;
+  line-height:1.8;
+  margin-bottom:22px;
+  min-height:110px;
 }
 
+/* Button */
 button{
-  margin-top:30px;
-  padding:15px 36px;
+  background:white;
+  color:#ff4d6d;
   border:none;
-  border-radius:40px;
-  background:#ff7eb3;
-  color:#fff;
+  padding:14px 32px;
+  border-radius:32px;
   font-size:1rem;
+  font-weight:600;
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(255,126,179,.5);
-  transition:.3s;
+  transition:.3s ease;
 }
 
-button:hover{transform:scale(1.1)}
+button:hover{transform:scale(1.08);background:#ffe3ea}
 
-@keyframes fade{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
+/* Pages */
+.page{display:none}
+.page.active{display:block}
+
+/* Cake */
+.cake{
+  width:170px;
+  margin:20px auto;
+  cursor:pointer;
+  animation:bounce 2s infinite;
 }
 
-/* 🍓 Sparkles */
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+/* Photo */
+.photo{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,.9);
+  margin:18px auto;
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+  position:relative;
+}
+
+/* Sparkles */
 .sparkle{
   position:absolute;
-  font-size:22px;
-  animation:sparkleFloat 6s linear infinite;
-  pointer-events:none;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  animation:sparkle 1.5s infinite;
 }
 
-@keyframes sparkleFloat{
-  0%{transform:translateY(100vh);opacity:0}
-  30%{opacity:1}
-  100%{transform:translateY(-10vh);opacity:0}
+@keyframes sparkle{
+  0%{transform:scale(0);opacity:0}
+  50%{opacity:1}
+  100%{transform:scale(1.5);opacity:0}
 }
 
-/* 🎂 Cake */
-.cakeBox{
-  position:relative;
-  font-size:120px;
-  cursor:pointer;
-}
-
-.cakeHalf{
+/* Hearts & flowers */
+.float{
   position:absolute;
-  top:0;
-  transition:1s;
+  bottom:-20px;
+  pointer-events:none;
+  animation:floatUp 7s linear forwards;
 }
 
-.left{left:-10px}
-.right{right:-10px}
-
-.cut .left{transform:translateX(-80px) rotate(-10deg)}
-.cut .right{transform:translateX(80px) rotate(10deg)}
-
-.letter{
-  background:rgba(255,255,255,.85);
-  padding:28px;
-  border-radius:25px;
-  box-shadow:0 15px 40px rgba(0,0,0,.12);
-  max-height:75vh;
-  overflow-y:auto;
-}
-
-.photo{
-  width:240px;
-  height:320px;
-  object-fit:cover;
-  border-radius:25px;
-  margin:20px auto;
-  box-shadow:0 20px 45px rgba(0,0,0,.25);
-  animation:pop 1.4s ease;
-}
-
-@keyframes pop{
-  from{opacity:0;transform:scale(.8)}
-  to{opacity:1;transform:scale(1)}
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1}
+  to{transform:translateY(-120vh);opacity:0}
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🎵 MUSIC -->
 <audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
+  <source src="YOUR_MUSIC_LINK_HERE" type="audio/mpeg">
 </audio>
 
+<div class="card">
+
 <!-- PAGE 1 -->
-<section id="p1" class="active">
-  <div>
-    <h1>Hey My Strawberry Girl 🍓🎀</h1>
-    <p>
-      This little pink world was made only for you, Sanuu 🤍<br>
-      Soft, cute, and full of love — just like you ✨
-    </p>
-    <button onclick="go(2)">Start 💗</button>
-  </div>
-</section>
+<div class="page active" id="page1">
+  <h1>Sanuu 🎀</h1>
+  <p>
+    February 16 wasn’t just a date…<br>
+    It was the day the world got you 💕
+  </p>
+
+  <img src="https://i.imgur.com/1YcG3Qx.png" class="cake" onclick="cutCake()">
+  <p style="font-size:.9rem;">Tap the cake to cut 🎂</p>
+</div>
 
 <!-- PAGE 2 -->
-<section id="p2">
-  <div>
-    <h1>Cut the Cake 🍰</h1>
-    <p>Go on… gently 🎀</p>
+<div class="page" id="page2">
+  <h1>Happy Birthday 💖</h1>
 
-    <div class="cakeBox" onclick="cutCake()">
-      <div class="cakeHalf left">🎂</div>
-      <div class="cakeHalf right">🎂</div>
-    </div>
-
-    <p id="cakeText" style="margin-top:20px;"></p>
+  <!-- 🔴 HER PHOTO HERE -->
+  <div style="position:relative;display:inline-block">
+    <img src="YOUR_IMAGE_LINK_HERE" class="photo" id="photo">
   </div>
-</section>
+
+  <p id="text2"></p>
+  <button onclick="nextPage(3)">Next ➜</button>
+</div>
 
 <!-- PAGE 3 -->
-<section id="p3">
-  <div class="letter">
-    <h1>For You, My Sanuu 💌</h1>
-    <p>
-      Happy Birthday my sweet Sonika 🤍<br><br>
+<div class="page" id="page3">
+  <h1>For You 🌸</h1>
+  <p id="text3"></p>
+</div>
 
-      You’re the softest part of my life, the calm in my chaos,
-      and the smile I search for without even realizing it.<br><br>
-
-      Loving you feels like home — safe, warm, and real.
-      Every day with you feels lighter, prettier, and more meaningful.<br><br>
-
-      On your birthday, I just want you to know:
-      you are deeply loved, endlessly cherished,
-      and always my favorite person 🍓🎀<br><br>
-
-      I choose you — today and always.
-    </p>
-    <button onclick="go(4)">One Last Thing 💗</button>
-  </div>
-</section>
-
-<!-- PAGE 4 -->
-<section id="p4">
-  <div>
-    <h1>My Favorite View 🎀</h1>
-    <img src="photo.jpg" class="photo" alt="Sanuu">
-    <p>
-      If happiness had a face,<br>
-      it would look exactly like you 🍓✨
-    </p>
-    <p style="margin-top:20px;">Forever yours 🤍</p>
-  </div>
-</section>
+</div>
 
 <script>
 const music=document.getElementById("bgMusic");
+music.volume=0.35;
 
-function go(n){
-  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-  document.getElementById("p"+n).classList.add("active");
-  music.play();
-}
+// autoplay fix
+document.body.addEventListener("click",()=>{
+  music.play().catch(()=>{});
+},{once:true});
 
 function cutCake(){
-  const box=document.querySelector(".cakeBox");
-  box.classList.add("cut");
-  document.getElementById("cakeText").innerText="Cake cut perfectly 🍰🍓";
-  sparkles("🍓","🎀","✨");
-  setTimeout(()=>go(3),1800);
+  flowerBurst();
+  document.getElementById("page1").innerHTML=`
+    <h1>🎂 Cutie 🎂</h1>
+    <p>
+      The cake is cut…<br>
+      Just like that, you cut straight into my heart 💕
+    </p>
+    <button onclick="nextPage(2)">Open Your Message ➜</button>
+  `;
 }
 
-function sparkles(...icons){
-  for(let i=0;i<25;i++){
-    let s=document.createElement("div");
-    s.className="sparkle";
-    s.innerText=icons[Math.floor(Math.random()*icons.length)];
-    s.style.left=Math.random()*100+"vw";
-    s.style.animationDuration=(4+Math.random()*4)+"s";
-    document.body.appendChild(s);
-    setTimeout(()=>s.remove(),8000);
+const texts={
+text2:
+`Happy Birthday my Sonika 💕 My Sanuu 🌸
+
+On this special day, I just want you to know how precious you are.
+
+Your smile makes everything brighter,
+Your presence makes everything calmer,
+And having you in my life feels like a blessing 💖
+
+Never forget how loved you are — today and always ✨`,
+
+text3:
+`May your life be filled with happiness that never fades 🌷
+
+May every dream you make find its way to reality ✨
+
+Happy Birthday once again,
+my beautiful Sanuu 🎂💝`
+};
+
+function typeText(id,text,speed=22){
+  let i=0;
+  const el=document.getElementById(id);
+  el.innerHTML='';
+  const interval=setInterval(()=>{
+    el.innerHTML+=text.charAt(i)==="\n"?"<br>":text.charAt(i);
+    i++;
+    if(i>=text.length)clearInterval(interval);
+  },speed);
+}
+
+function nextPage(n){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page"+n).classList.add("active");
+  typeText("text"+n,texts["text"+n]);
+  if(n===2) addSparkles();
+}
+
+function flowerBurst(){
+  for(let i=0;i<20;i++){
+    const f=document.createElement("div");
+    f.className="float";
+    f.innerHTML=Math.random()>0.5?"🌸":"❤️";
+    f.style.left=Math.random()*100+"vw";
+    f.style.fontSize=(Math.random()*20+18)+"px";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),7000);
   }
 }
 
-setInterval(()=>sparkles("✨","🎀","🍓"),2500);
+function addSparkles(){
+  const photo=document.getElementById("photo");
+  for(let i=0;i<12;i++){
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.top=Math.random()*180+"px";
+    s.style.left=Math.random()*180+"px";
+    photo.parentElement.appendChild(s);
+  }
+}
+
+// continuous hearts
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="float";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(Math.random()*16+14)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+},400);
 </script>
 
 </body>
