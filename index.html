@@ -1,272 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For My Sanuu 💖</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For My Sanuu 🎀</title>
 
-  <!-- 🌸 Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    body {
-      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
-      overflow-x: hidden;
-      color: #5a2a44;
-      font-family: 'Quicksand', sans-serif;
-    }
+body{
+  background: linear-gradient(135deg,#ffd1e8,#fff0f7);
+  font-family:'Quicksand',sans-serif;
+  color:#5a2a44;
+  overflow-x:hidden;
+}
 
-    section {
-      min-height: 100vh;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 30px;
-      position: relative;
-    }
+section{
+  min-height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
+}
 
-    section.active {
-      display: flex;
-      animation: fadeIn 1s ease;
-    }
+section.active{display:flex;animation:fade 1s ease}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.3rem;
-      margin-bottom: 18px;
-    }
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.3rem;
+  margin-bottom:16px;
+}
 
-    p {
-      font-size: 1.08rem;
-      line-height: 1.9;
-      max-width: 720px;
-      margin: auto;
-    }
+p{
+  font-size:1.1rem;
+  line-height:1.9;
+  max-width:720px;
+  margin:auto;
+}
 
-    button {
-      margin-top: 28px;
-      padding: 14px 34px;
-      border: none;
-      border-radius: 30px;
-      background: #ff7eb3;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(255,126,179,0.4);
-      transition: transform 0.3s ease;
-      font-family: 'Quicksand', sans-serif;
-    }
+button{
+  margin-top:30px;
+  padding:15px 36px;
+  border:none;
+  border-radius:40px;
+  background:#ff7eb3;
+  color:#fff;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(255,126,179,.5);
+  transition:.3s;
+}
 
-    button:hover {
-      transform: scale(1.08);
-    }
+button:hover{transform:scale(1.1)}
 
-    /* 🌸 Floating flowers */
-    .flower {
-      position: absolute;
-      font-size: 22px;
-      animation: float 8s linear infinite;
-      opacity: 0.75;
-    }
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-    /* ✨ Sparkles */
-    .sparkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: white;
-      border-radius: 50%;
-      animation: sparkle 2s infinite;
-      opacity: 0.8;
-    }
+/* 🍓 Sparkles */
+.sparkle{
+  position:absolute;
+  font-size:22px;
+  animation:sparkleFloat 6s linear infinite;
+  pointer-events:none;
+}
 
-    /* 🎂 Cake */
-    .cake {
-      font-size: 130px;
-      cursor: pointer;
-      transition: transform 0.4s ease;
-    }
+@keyframes sparkleFloat{
+  0%{transform:translateY(100vh);opacity:0}
+  30%{opacity:1}
+  100%{transform:translateY(-10vh);opacity:0}
+}
 
-    .cake:active {
-      transform: scale(0.9);
-    }
+/* 🎂 Cake */
+.cakeBox{
+  position:relative;
+  font-size:120px;
+  cursor:pointer;
+}
 
-    /* 💌 Letter */
-    .letter {
-      background: rgba(255,255,255,0.8);
-      padding: 28px;
-      border-radius: 22px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-      max-height: 72vh;
-      overflow-y: auto;
-    }
+.cakeHalf{
+  position:absolute;
+  top:0;
+  transition:1s;
+}
 
-    /* 📸 Photo */
-    .photo {
-      width: 240px;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 22px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
-      margin: 22px auto;
-      animation: photoReveal 1.5s ease;
-    }
+.left{left:-10px}
+.right{right:-10px}
 
-    @keyframes fadeIn {
-      from {opacity:0; transform: translateY(20px);}
-      to {opacity:1; transform: translateY(0);}
-    }
+.cut .left{transform:translateX(-80px) rotate(-10deg)}
+.cut .right{transform:translateX(80px) rotate(10deg)}
 
-    @keyframes float {
-      0% {transform: translateY(100vh) rotate(0deg);}
-      100% {transform: translateY(-10vh) rotate(360deg);}
-    }
+.letter{
+  background:rgba(255,255,255,.85);
+  padding:28px;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
+  max-height:75vh;
+  overflow-y:auto;
+}
 
-    @keyframes sparkle {
-      0%,100% {opacity:0;}
-      50% {opacity:1;}
-    }
+.photo{
+  width:240px;
+  height:320px;
+  object-fit:cover;
+  border-radius:25px;
+  margin:20px auto;
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
+  animation:pop 1.4s ease;
+}
 
-    @keyframes photoReveal {
-      from {opacity:0; transform: scale(0.85);}
-      to {opacity:1; transform: scale(1);}
-    }
-  </style>
+@keyframes pop{
+  from{opacity:0;transform:scale(.8)}
+  to{opacity:1;transform:scale(1)}
+}
+</style>
 </head>
 
 <body>
 
-<!-- 🎶 Background Music -->
 <audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🌸 PAGE 1 -->
-<section id="page1" class="active">
+<!-- PAGE 1 -->
+<section id="p1" class="active">
   <div>
-    <h1>Hey My Sanuu 💖</h1>
+    <h1>Hey My Strawberry Girl 🍓🎀</h1>
     <p>
-      This isn’t just a birthday surprise…<br>
-      it’s a little piece of my heart made just for you 🌸<br><br>
-      Take your time, smile, and enjoy every moment ✨
+      This little pink world was made only for you, Sanuu 🤍<br>
+      Soft, cute, and full of love — just like you ✨
     </p>
-    <button onclick="nextPage(2)">Let’s Begin 🌷</button>
+    <button onclick="go(2)">Start 💗</button>
   </div>
 </section>
 
-<!-- 🎂 PAGE 2 -->
-<section id="page2">
+<!-- PAGE 2 -->
+<section id="p2">
   <div>
-    <h1>It’s Your Special Day 🎂</h1>
-    <p>
-      Go on… cut the cake, birthday girl 💕<br>
-      Today is all about celebrating **you**
-    </p>
-    <div class="cake" onclick="cutCake()">🎂</div>
-    <p id="cakeText" style="margin-top:18px;"></p>
+    <h1>Cut the Cake 🍰</h1>
+    <p>Go on… gently 🎀</p>
+
+    <div class="cakeBox" onclick="cutCake()">
+      <div class="cakeHalf left">🎂</div>
+      <div class="cakeHalf right">🎂</div>
+    </div>
+
+    <p id="cakeText" style="margin-top:20px;"></p>
   </div>
 </section>
 
-<!-- 💌 PAGE 3 -->
-<section id="page3">
+<!-- PAGE 3 -->
+<section id="p3">
   <div class="letter">
-    <h1>My Love Letter to You 💌</h1>
+    <h1>For You, My Sanuu 💌</h1>
     <p>
-      Happy Birthday, my beautiful Sonika — my Sanuu 🤍<br><br>
+      Happy Birthday my sweet Sonika 🤍<br><br>
 
-      February 16 will always be special to me, because it’s the day
-      the most precious person in my life was born.
-      The world may not have noticed anything different that day,
-      but for me, it means everything.<br><br>
+      You’re the softest part of my life, the calm in my chaos,
+      and the smile I search for without even realizing it.<br><br>
 
-      You have this rare magic about you —
-      the kind that makes everything feel lighter just by being there.
-      Your smile calms me, your voice feels like home,
-      and your presence turns ordinary moments into memories I want to keep forever.<br><br>
+      Loving you feels like home — safe, warm, and real.
+      Every day with you feels lighter, prettier, and more meaningful.<br><br>
 
-      I may not always find the perfect words,
-      but please know this: loving you is the easiest and most beautiful thing I’ve ever done.
-      You inspire me, comfort me, and make me want to be better every single day.<br><br>
+      On your birthday, I just want you to know:
+      you are deeply loved, endlessly cherished,
+      and always my favorite person 🍓🎀<br><br>
 
-      On your birthday, I wish you happiness that stays,
-      dreams that come true,
-      and a life filled with warmth, love, and endless smiles.
-      And through it all, I hope I get to stand beside you 🤍<br><br>
-
-      I love you more than these words can ever explain.
-      Today, tomorrow, and always.
+      I choose you — today and always.
     </p>
-
-    <button onclick="nextPage(4)">A Special Message For You 💖</button>
+    <button onclick="go(4)">One Last Thing 💗</button>
   </div>
 </section>
 
-<!-- ✨ PAGE 4 -->
-<section id="page4">
+<!-- PAGE 4 -->
+<section id="p4">
   <div>
-    <h1>My Favorite Person 🤍</h1>
-
-    <img src="photo.jpg" alt="My Sanuu" class="photo"/>
-
+    <h1>My Favorite View 🎀</h1>
+    <img src="photo.jpg" class="photo" alt="Sanuu">
     <p>
-      If I could give you one gift in life,<br>
-      it would be the ability to see yourself through my eyes.<br><br>
-
-      You are stronger than you think,<br>
-      more beautiful than you realize,<br>
-      and more loved than you’ll ever know.
+      If happiness had a face,<br>
+      it would look exactly like you 🍓✨
     </p>
-
-    <p style="margin-top:22px;">Forever yours, always 💞</p>
+    <p style="margin-top:20px;">Forever yours 🤍</p>
   </div>
 </section>
 
 <script>
-  const music = document.getElementById("bgMusic");
+const music=document.getElementById("bgMusic");
 
-  function nextPage(num) {
-    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-    document.getElementById("page" + num).classList.add("active");
-    music.play();
+function go(n){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById("p"+n).classList.add("active");
+  music.play();
+}
+
+function cutCake(){
+  const box=document.querySelector(".cakeBox");
+  box.classList.add("cut");
+  document.getElementById("cakeText").innerText="Cake cut perfectly 🍰🍓";
+  sparkles("🍓","🎀","✨");
+  setTimeout(()=>go(3),1800);
+}
+
+function sparkles(...icons){
+  for(let i=0;i<25;i++){
+    let s=document.createElement("div");
+    s.className="sparkle";
+    s.innerText=icons[Math.floor(Math.random()*icons.length)];
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=(4+Math.random()*4)+"s";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),8000);
   }
+}
 
-  function cutCake() {
-    document.getElementById("cakeText").innerText = "Yayyy! Cake cut 🎉🌸";
-    createFlowers();
-    setTimeout(() => nextPage(3), 1500);
-  }
-
-  function createFlowers() {
-    for (let i = 0; i < 15; i++) {
-      let flower = document.createElement("div");
-      flower.className = "flower";
-      flower.innerText = "🌸";
-      flower.style.left = Math.random() * 100 + "vw";
-      flower.style.animationDuration = (5 + Math.random()*5) + "s";
-      document.body.appendChild(flower);
-      setTimeout(() => flower.remove(), 10000);
-    }
-  }
-
-  function createSparkles() {
-    for (let i = 0; i < 20; i++) {
-      let s = document.createElement("div");
-      s.className = "sparkle";
-      s.style.left = Math.random() * 100 + "vw";
-      s.style.top = Math.random() * 100 + "vh";
-      document.body.appendChild(s);
-      setTimeout(() => s.remove(), 2000);
-    }
-  }
-
-  setInterval(createSparkles, 2000);
+setInterval(()=>sparkles("✨","🎀","🍓"),2500);
 </script>
 
 </body>
